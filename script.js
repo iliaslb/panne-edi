@@ -9,8 +9,57 @@ let gameState = {
     timerDuration: 30000, // 30 seconds per scenario
     digitalTimerInterval: null,
     gameMode: 'complete', // 'quick' or 'complete'
-    scenarioIndices: [] // Will hold the indices of scenarios to show based on game mode
+    scenarioIndices: [], // Will hold the indices of scenarios to show based on game mode
+    isMuted: true // Audio starts muted by default
 };
+
+// Audio elements
+const backgroundMusic = document.getElementById('background-music');
+const buttonClick = document.getElementById('button-click');
+const muteButton = document.getElementById('mute-button');
+const muteIcon = muteButton.querySelector('.mute-icon');
+
+// Audio functions
+function toggleMute() {
+    gameState.isMuted = !gameState.isMuted;
+    updateMuteState();
+}
+
+function updateMuteState() {
+    backgroundMusic.muted = gameState.isMuted;
+    buttonClick.muted = gameState.isMuted;
+    muteIcon.textContent = gameState.isMuted ? '🔇' : '🔊';
+}
+
+function playButtonSound() {
+    if (!gameState.isMuted) {
+        buttonClick.currentTime = 0;
+        buttonClick.play();
+    }
+}
+
+// Initialize audio
+function initAudio() {
+    // Set initial volume levels
+    backgroundMusic.volume = 0.3;
+    buttonClick.volume = 0.5;
+    
+    // Update initial mute state
+    updateMuteState();
+    
+    // Add click handler for mute button
+    muteButton.addEventListener('click', () => {
+        toggleMute();
+        playButtonSound();
+    });
+    
+    // Add click sound to all buttons
+    document.querySelectorAll('button').forEach(button => {
+        if (button !== muteButton) {
+            button.addEventListener('click', playButtonSound);
+        }
+    });
+}
 
 // Quick mode scenario indices (questions 1, 3, 4, 8, 9, 10)
 const quickModeIndices = [0, 2, 3, 7, 8, 9];
@@ -332,6 +381,12 @@ const profiles = [
 const welcomeScreen = document.getElementById('welcome-screen');
 const modeSelectionScreen = document.getElementById('mode-selection-screen');
 const loadingScreen = document.getElementById('loading-screen');
+
+// Initialize audio when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initGame();
+    initAudio();
+});
 const scenarioScreen = document.getElementById('scenario-screen');
 const feedbackScreen = document.getElementById('feedback-screen');
 const patchScreen = document.getElementById('patch-screen');
@@ -361,8 +416,7 @@ const finalScore = document.getElementById('final-score');
 const profileTitle = document.getElementById('profile-title');
 const profileDescription = document.getElementById('profile-description');
 
-// Event Listeners
-document.addEventListener('DOMContentLoaded', initGame);
+// Event Listeners for game controls
 startButton.addEventListener('click', showModeSelection);
 quickModeButton.addEventListener('click', () => selectGameMode('quick'));
 completeModeButton.addEventListener('click', () => selectGameMode('complete'));
@@ -387,6 +441,9 @@ function selectGameMode(mode) {
     
     // Hide the footer quote
     document.querySelector('footer').style.display = 'none';
+    
+    // Start background music
+    backgroundMusic.play();
     
     // Set up scenario indices based on selected mode
     if (mode === 'quick') {

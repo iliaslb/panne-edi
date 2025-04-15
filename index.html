@@ -9,6 +9,18 @@
 </head>
 <body>
     <div class="game-container">
+        <div class="audio-controls">
+            <button id="mute-button" class="retro-button" aria-label="Toggle sound">
+                <span class="mute-icon">🔇</span>
+            </button>
+        </div>
+        <!-- Audio elements -->
+        <audio id="background-music" loop>
+            <source src="audio/background_8bit_bossa.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="button-click" preload="auto">
+            <source src="audio/button_effect.wav" type="audio/wav">
+        </audio>
         <div class="status-bar">
             <div class="karma-display">
                 <span class="karma-label">KARMA:</span>
