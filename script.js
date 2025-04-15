@@ -385,6 +385,9 @@ function showModeSelection() {
 function selectGameMode(mode) {
     gameState.gameMode = mode;
     
+    // Hide the footer quote
+    document.querySelector('footer').style.display = 'none';
+    
     // Set up scenario indices based on selected mode
     if (mode === 'quick') {
         gameState.scenarioIndices = [...quickModeIndices];
@@ -599,6 +602,9 @@ function restartGame() {
     gameState.currentScenario = 0;
     gameState.totalKarma = 0;
     gameState.scenarioIndices = [];
+    
+    // Show the footer quote again
+    document.querySelector('footer').style.display = '';
     
     // Return to welcome screen to allow mode selection again
     switchScreen(finalScreen, welcomeScreen);
