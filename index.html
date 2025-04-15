@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panne ÉDI - Jeu Interactif</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="status-bar">
+            <div class="karma-display">
+                <span class="karma-label">KARMA:</span>
+                <span id="current-karma">0</span>
+                <span class="karma-separator">/</span>
+                <span id="max-karma">0</span>
+            </div>
+        </div>
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="content">
+                <h1 class="retro-title">Bienvenue dans<br>PANNE ÉDI</h1>
+                <p class="subtitle">Redémarre ton équipe ☺</p>
+                <button id="start-button" class="retro-button">Commencer la mission</button>
+                <p class="description">
+                    Ton équipe de projet est en mode survie sociale.<br>
+                    Ta mission ?<br>
+                    Repérer les bugs humains, faire les bons choix, sauver le karma ÉDI.
+                </p>
+            </div>
+        </div>
+
+        <!-- Mode Selection Screen -->
+        <div id="mode-selection-screen" class="screen">
+            <div class="content">
+                <h2 class="mode-title">Choisis ton mode de jeu</h2>
+                <div class="mode-options">
+                    <button id="quick-mode-button" class="mode-button">
+                        <span class="mode-name">Mode Rapide</span>
+                        <span class="mode-description">6 questions sélectionnées</span>
+                    </button>
+                    <button id="complete-mode-button" class="mode-button">
+                        <span class="mode-name">Mode Complet</span>
+                        <span class="mode-description">Toutes les 10 questions</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen">
+            <div class="content">
+                <div id="loading-text" class="loading-text"></div>
+                <div class="loading-animation">
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario Screen -->
+        <div id="scenario-screen" class="screen">
+            <div class="content">
+                <div class="timer-container">
+                    <div class="timer-bar"></div>
+                    <div id="digital-timer">30</div>
+                </div>
+                <div id="scenario-text" class="scenario-text"></div>
+                <div id="choices" class="choices">
+                    <!-- Choices will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Screen -->
+        <div id="feedback-screen" class="screen">
+            <div class="content">
+                <div id="choice-result" class="choice-result"></div>
+                <div id="karma-change" class="karma-change"></div>
+                <div id="feedback-text" class="feedback-text"></div>
+                <button id="next-button" class="retro-button">suivant</button>
+            </div>
+        </div>
+
+        <!-- Patch Screen -->
+        <div id="patch-screen" class="screen">
+            <div class="content">
+                <h2>Patch pédagogique :</h2>
+                <div class="patch-container">
+                    <h3>Mécanique d'équipe:</h3>
+                    <div id="patch-mechanic" class="patch-text"></div>
+                    
+                    <h3>Lien avec l'EDI:</h3>
+                    <div id="patch-edi" class="patch-text"></div>
+                </div>
+                <button id="continue-button" class="retro-button">suivant</button>
+            </div>
+        </div>
+
+        <!-- Final Score Screen -->
+        <div id="final-screen" class="screen">
+            <div class="content">
+                <h2>Classement final :</h2>
+                <div id="final-score" class="final-score"></div>
+                <div id="profile-title" class="profile-title"></div>
+                <div id="profile-description" class="profile-description"></div>
+                <div class="final-message">
+                    <h3>Message final sérieux :</h3>
+                    <p>
+                        L'inclusion n'est pas une case à cocher.<br>
+                        C'est une série d'attitudes conscientes, de choix réfléchis, et de comportements visibles.<br>
+                        Dans vos projets de génie, ce n'est pas un bonus… c'est un levier de performance.
+                    </p>
+                </div>
+                <button id="restart-button" class="retro-button">Rejouer</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="quote">"La diversité est l'invitation à l'ouverture d'esprit, l'inclusion est l'acte de donner une place à tous." — Verna Myers</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

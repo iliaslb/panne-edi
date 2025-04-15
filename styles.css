@@ -1,0 +1,463 @@
+/* Retro Game Styling for Panne EDI */
+
+/* Mode Selection Screen */
+.mode-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    text-shadow: 3px 3px 0 var(--dark-color);
+    margin-bottom: 30px;
+}
+
+.mode-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.mode-button {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border: 3px solid var(--primary-color);
+    padding: 20px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.mode-button:hover {
+    background-color: var(--primary-color);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--dark-color);
+}
+
+.mode-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+.mode-name {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.mode-description {
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+/* Status Bar */
+.status-bar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--dark-color);
+    border: 2px solid var(--primary-color);
+    padding: 10px;
+    box-shadow: 4px 4px 0 var(--dark-color);
+}
+
+.karma-display {
+    font-size: 1rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0 var(--dark-color);
+}
+
+.karma-label {
+    margin-right: 8px;
+}
+
+.karma-separator {
+    margin: 0 5px;
+    color: var(--secondary-color);
+}
+
+#current-karma, #max-karma {
+    color: var(--light-color);
+}
+
+:root {
+    --primary-color: #8a2be2; /* Purple */
+    --secondary-color: #d8bfd8; /* Light purple */
+    --dark-color: #333333; /* Dark gray */
+    --light-color: #f5f5f5; /* Light gray/white */
+    --accent-color: #9370db; /* Medium purple */
+    --text-color: #e0e0e0; /* Light gray for text */
+    --background-color: #1a1a1a; /* Very dark gray for background */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 20px;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.content {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    border: 4px solid var(--primary-color);
+    background-color: var(--dark-color);
+    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--accent-color);
+    position: relative;
+}
+
+/* Welcome Screen */
+.retro-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 3px 3px 0 var(--dark-color);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.description {
+    font-size: 0.9rem;
+    margin-top: 30px;
+    line-height: 1.8;
+}
+
+.retro-button {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    padding: 12px 24px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 4px 4px 0 var(--dark-color);
+    position: relative;
+    margin: 10px 0;
+}
+
+.retro-button:hover {
+    background-color: var(--accent-color);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--dark-color);
+}
+
+.retro-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+/* Loading Screen */
+.loading-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+
+.loading-animation {
+    width: 100%;
+    height: 20px;
+    background-color: var(--dark-color);
+    border: 2px solid var(--primary-color);
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.5s;
+}
+
+/* Scenario Screen */
+.timer-container {
+    width: 100%;
+    background-color: var(--dark-color);
+    border: 2px solid var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+#digital-timer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    background-color: var(--dark-color);
+    padding: 5px 10px;
+    border: 2px solid var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timer-bar {
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: width 0.1s linear;
+}
+
+.scenario-text {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    min-height: 100px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.choice-button {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border: 2px solid var(--primary-color);
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.choice-button:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+/* Feedback Screen */
+.choice-result {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.karma-change {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.karma-change.positive {
+    color: #4caf50; /* Green for positive karma */
+}
+
+.karma-change.negative {
+    color: #f44336; /* Red for negative karma */
+}
+
+.feedback-text {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Patch Screen */
+.patch-container {
+    background-color: var(--dark-color);
+    border: 2px solid var(--accent-color);
+    padding: 15px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.patch-container h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.patch-text {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* Final Score Screen */
+.final-score {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 20px 0;
+}
+
+.profile-title {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.profile-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.final-message {
+    background-color: var(--dark-color);
+    border: 2px solid var(--accent-color);
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.final-message h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--dark-color);
+    text-align: center;
+    font-size: 0.7rem;
+    border-top: 2px solid var(--primary-color);
+}
+
+.quote {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .retro-title {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .description, .scenario-text, .feedback-text {
+        font-size: 0.8rem;
+    }
+    
+    .choice-button {
+        font-size: 0.7rem;
+        padding: 10px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Retro CRT Effect */
+.screen::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+/* Pixel Border */
+.pixel-border {
+    position: relative;
+}
+
+.pixel-border::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: transparent;
+    border: 4px solid var(--primary-color);
+    z-index: -1;
+}
