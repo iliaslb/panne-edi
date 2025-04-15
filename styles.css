@@ -418,12 +418,14 @@ footer {
         padding: 3vh 4vw;
         margin: 2vh 2vw;
         margin-top: 12vh; /* Space for status bar */
+        margin-bottom: 12vh; /* Space for footer */
     }
 
     .screen {
         padding: 2vh 2vw;
         align-items: flex-start;
         overflow-y: auto;
+        padding-bottom: 12vh; /* Additional padding to prevent content overlap with footer */
     }
 
     .game-container {
@@ -435,6 +437,18 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    footer {
+        font-size: 0.6rem; /* Smaller font size on mobile */
+        padding: 1vh;
+        height: 10vh; /* Taller height to accommodate text */
+        line-height: 1.4; /* Better line height for readability */
+    }
+
+    .quote {
+        max-width: 90%; /* Prevent text from touching edges */
+        margin: 0 auto;
     }
 }
 
