@@ -53,13 +53,18 @@
 /* Status Bar */
 .status-bar {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     background-color: var(--dark-color);
-    border: 2px solid var(--primary-color);
-    padding: 10px;
-    box-shadow: 4px 4px 0 var(--dark-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding: 2vh;
+    text-align: center;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .karma-display {
@@ -102,16 +107,18 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .game-container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 10vh 3vw;
 }
 
 .screen {
@@ -124,7 +131,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
-    padding: 20px;
+    padding: 3vh 3vw;
     text-align: center;
 }
 
@@ -133,13 +140,14 @@ body {
 }
 
 .content {
-    max-width: 800px;
+    max-width: 90vw;
     width: 100%;
-    padding: 20px;
-    border: 4px solid var(--primary-color);
+    padding: 3vh 4vw;
+    border: 0.3vh solid var(--primary-color);
     background-color: var(--dark-color);
-    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--accent-color);
+    box-shadow: 0 0 1vh var(--primary-color), 0 0 2vh var(--accent-color);
     position: relative;
+    margin: 2vh auto;
 }
 
 /* Welcome Screen */
@@ -258,22 +266,29 @@ body {
 .choices {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    padding: 10px 5px;
+    margin: 0 -5px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .choice-button {
     background-color: var(--dark-color);
     color: var(--light-color);
     border: 2px solid var(--primary-color);
-    padding: 15px;
+    padding: 20px;
     font-family: 'Press Start 2P', cursive;
     font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.3s;
     text-align: left;
+    min-height: 60px;
+    margin: 5px 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.choice-button:hover {
+.choice-button:hover, .choice-button:active {
     background-color: var(--primary-color);
     color: var(--light-color);
 }
@@ -362,11 +377,15 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 10px;
+    padding: 2vh;
+    height: 8vh;
     background-color: var(--dark-color);
     text-align: center;
     font-size: 0.7rem;
     border-top: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .quote {
@@ -389,12 +408,33 @@ footer {
     }
     
     .choice-button {
-        font-size: 0.7rem;
-        padding: 10px;
+        font-size: 0.8rem;
+        padding: 3vh 4vw;
+        min-height: 10vh;
+        margin: 1vh 0;
     }
     
     .content {
-        padding: 15px;
+        padding: 3vh 4vw;
+        margin: 2vh 2vw;
+        margin-top: 12vh; /* Space for status bar */
+    }
+
+    .screen {
+        padding: 2vh 2vw;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .game-container {
+        padding: 8vh 0 8vh;
+    }
+
+    .status-bar {
+        height: 8vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
